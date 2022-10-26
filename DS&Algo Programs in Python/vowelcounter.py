@@ -1,19 +1,30 @@
-def countVowels(S):
-    total_size = len(S)
-    vowels = 0
 
-    for char in S:
-        if char in 'aeiouAEIOU':
-            vowels = vowels + 1
-    consonants = total_size - vowels
-    
-    if vowels > consonants:
-        print('There are more vowels than consonants in the string ' + S)
-    elif vowels == consonants:
-        print('Both vowels and consonants are equal in the string ' + S)
-    else:
-        print('There are more consonants than vowels in the string ' + S)
+def Check_Vow(string, vowels):
 
-countVowels('hello')
-countVowels('hi')
-countVowels('aeiocc')
+    # The term "casefold" has been used to refer to a method of ignoring cases.
+
+    string = string.casefold()
+
+    count = {}.fromkeys(vowels, 0)
+
+    # To count the vowels
+
+    for character in string:
+
+        if character in count:
+
+            count[character] += 1   
+
+    return count
+
+# Driver Code
+
+vowels = 'aeiou'
+
+string = "Hi, I love eating ice cream and junk food"
+
+print (Check_Vow(string, vowels))
+
+Output: 
+
+{'a': 3, 'e':3 , 'i':2 , 'o':3 , 'u':1}
